@@ -65,14 +65,13 @@ class EightBall
     end
     def add_answer
       puts "Type the answer you would like to add or done to leave this mode.".colorize(:yellow)
-
-      
       input = gets.strip
       case input 
         when "done"
           menu
         else
         if @response.include? input 
+          puts "Already an answer!!".colorize(:orange)
         else
         @response << input 
         add_answer
