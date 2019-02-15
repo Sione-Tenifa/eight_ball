@@ -64,13 +64,21 @@ class EightBall
       line
     end
     def add_answer
-      input = gets.strip
-      if @response.include? input
-      else
-      @response << input 
-      end
-      # puts @response
+      puts "Type the answer you would like to add or done to leave this mode.".colorize(:yellow)
+
       
+      input = gets.strip
+      case input 
+        when "done"
+          menu
+        else
+        if @response.include? input 
+        else
+        @response << input 
+        add_answer
+        end
+
+      end
     end
     def print_answers
       line
